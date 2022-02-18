@@ -15,7 +15,7 @@ class TransactionController extends Controller
      */
     public function index()
     {
-        $transaction = Transaction::orderyBy('time', 'DESC')->get();
+        $transaction = Transaction::orderBy('time', 'DESC')->get();
         $response = [
             'message' => 'List transaction order by time',
             'data' => $transaction
