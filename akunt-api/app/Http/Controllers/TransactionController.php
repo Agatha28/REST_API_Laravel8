@@ -52,8 +52,8 @@ class TransactionController extends Controller
             ];
 
             return response()->json($response, Response::HTTP_CREATED);
-            
-        } catch (\Throwable $th){
+
+        } catch (QueryException){
 
         }
     }
