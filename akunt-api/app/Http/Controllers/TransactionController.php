@@ -14,7 +14,7 @@ class TransactionController extends Controller
      */
     public function index()
     {
-        $transaction = Transaction
+        $transaction = Transaction::orderyBy('time', 'DESC')->get();
     }
 
     
