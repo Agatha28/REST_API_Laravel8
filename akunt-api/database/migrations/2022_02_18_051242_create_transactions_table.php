@@ -17,7 +17,7 @@ class CreateTransactionsTable extends Migration
             $table->id();
             $table->string('title');
             $table->double('amount');
-            $table->timestamps('time')->default(now());
+            $table->timestamp('time')->default(now());
             $table->enum('type',['expense','revenue']);
             $table->timestamps();
         });
