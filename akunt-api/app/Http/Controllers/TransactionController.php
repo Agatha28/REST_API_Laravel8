@@ -49,7 +49,10 @@ class TransactionController extends Controller
             $response = [
                 'message' => 'Transaction created',
                 'data' => $transaction
-            ]
+            ];
+
+            return response()->json($response, Response::HTTP_CREATED);
+            
         } catch (\Throwable $th){
 
         }
