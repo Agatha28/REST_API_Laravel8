@@ -41,7 +41,8 @@ class TransactionController extends Controller
         ]);
 
         if ($validator->fails()) {
-            return response()->json($validator->errors(), Response::HTTP_UNPROCESSABLE_ENTITY);
+            return response()->json($validator->errors(),
+            Response::HTTP_UNPROCESSABLE_ENTITY);
         }
 
         try {
@@ -53,8 +54,10 @@ class TransactionController extends Controller
 
             return response()->json($response, Response::HTTP_CREATED);
 
-        } catch (QueryException){
-
+        } catch (QueryException $e){
+            return response()->json([
+                'message' => "Failed" .$e->errorInfo
+            ]);
         }
     }
 
