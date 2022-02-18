@@ -21,7 +21,7 @@ class TransactionController extends Controller
             'data' => $transaction
         ];
         
-        return response()->json($response, Response)
+        return response()->json($response, Response::HTTP_OK);
     }
 
     
