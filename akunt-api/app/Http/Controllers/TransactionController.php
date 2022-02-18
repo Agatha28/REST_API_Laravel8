@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Transaction;
+use Symfony\Component\HttpFoundation\Response;
 
 class TransactionController extends Controller
 {
@@ -19,6 +20,8 @@ class TransactionController extends Controller
             'message' => 'List transaction order by time',
             'data' => $transaction
         ];
+        
+        return response()->json($response, Response)
     }
 
     
