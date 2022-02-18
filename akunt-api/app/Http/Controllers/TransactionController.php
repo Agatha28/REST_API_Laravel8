@@ -37,8 +37,12 @@ class TransactionController extends Controller
         $validator = Validator::make($request->all(),[
             'title' => ['required'],
             'amount' => ['required', 'numeric'],
-            'type' => ['required', 'in:expense, revenue']
+            'type' => ['required', 'in:expense,revenue']
         ]);
+
+        if ($validator->fails()) {
+            # code...
+        }
     }
 
     /**
