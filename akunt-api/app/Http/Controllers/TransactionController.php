@@ -41,7 +41,7 @@ class TransactionController extends Controller
         ]);
 
         if ($validator->fails()) {
-            return response()->json($validator)
+            return response()->json($validator->errors())
         }
     }
 
