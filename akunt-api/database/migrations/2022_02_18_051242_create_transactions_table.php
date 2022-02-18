@@ -17,6 +17,7 @@ class CreateTransactionsTable extends Migration
             $table->id();
             $table->string('title');
             $table->double('amount');
+            $table->
             $table->timestamps();
         });
     }
