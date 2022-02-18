@@ -83,7 +83,9 @@ class TransactionController extends Controller
      */
     public function update(Request $request, $id)
     {
-        validator = Validator::make($request->all(),[
+        $transaction = Transaction::findOrFail($id);
+        
+        $validator = Validator::make($request->all(),[
             'title' => ['required'],
             'amount' => ['required', 'numeric'],
             'type' => ['required', 'in:expense,revenue']
