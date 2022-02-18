@@ -41,7 +41,7 @@ class TransactionController extends Controller
         ]);
 
         if ($validator->fails()) {
-            return response()->json($validator->errors())
+            return response()->json($validator->errors(), Response::HTTP_UNPROCESSABLE_ENTITY);
         }
     }
 
