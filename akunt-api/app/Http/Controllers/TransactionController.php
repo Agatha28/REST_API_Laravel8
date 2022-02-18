@@ -47,7 +47,8 @@ class TransactionController extends Controller
         try {
             $transaction = Transaction::create($request->all());
             $response = [
-                'message' = 'Transaction created',
+                'message' => 'Transaction created',
+                'data' => $transaction
             ]
         } catch (\Throwable $th){
 
