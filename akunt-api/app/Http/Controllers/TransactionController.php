@@ -83,7 +83,31 @@ class TransactionController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        validator = Validator::make($request->all(),[
+            'title' => ['required'],
+            'amount' => ['required', 'numeric'],
+            'type' => ['required', 'in:expense,revenue']
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json($validator->errors(),
+            Response::HTTP_UNPROCESSABLE_ENTITY);
+        }
+
+        try {
+            $transaction = Transaction::create($request->all());
+            $response = [
+                'message' => 'Transaction created',
+                'data' => $transaction
+            ];
+
+            return response()->json($response, Response::HTTP_CREATED);
+
+        } catch (QueryException $e){
+            return response()->json([
+                'message' => "Failed" .$e->errorInfo
+            ]);
+        }
     }
 
     /**
